@@ -9,10 +9,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const hueColorLamp = require('./hue-color-lamp.json');
 
-const DEBUG = false;
+var _debug = false;
 
 function debug(log) {
-    if (DEBUG) {
+    if (_debug) {
         console.log(log);
     }
 }
@@ -37,10 +37,24 @@ function getIpAddress() {
 }
 
 class HueBridgeEmulator {
-    start() {
+    constructor(conf = null) {
+        this.port = 80;
         this.lights = {};
         this.callbacks = {};
+        if(conf == null) return;
+        for (let key in conf) {
+            switch(key) {
+                case 'debug':
+                    _debug = (conf[key] == true);
+                    break;
+                case 'port':
+                    this.port = conf[key];
+                    break;
+            }
+        }
+    }
 
+    start() {
         const descriptionPath = '/description.xml';
         const prefix = '001788';
         const postfix = '7ebe7d';
@@ -48,7 +62,6 @@ class HueBridgeEmulator {
         const bridgeId = `${prefix}FFFE${postfix}`;
         const uuid = `2f402f80-da50-11e1-9b23-${serialNumber}`;
         const ipAddress = getIpAddress();
-        const port = 80;
 
         const app = express();
         app.use(bodyParser.json());
@@ -60,7 +73,7 @@ class HueBridgeEmulator {
         });
 
         app.get(descriptionPath, (req, res) => {
-            res.status(200).send(this.createDescription(ipAddress, port, serialNumber, uuid));
+            res.status(200).send(this.createDescription(ipAddress, this.port, serialNumber, uuid));
         });
 
         app.post('/api', (req, res) => {
@@ -117,7 +130,7 @@ class HueBridgeEmulator {
             }
         });
 
-        const restServer = app.listen(port, () => {
+        const restServer = app.listen(this.port, () => {
             console.log(`Api is listening on ${restServer.address().address}:${restServer.address().port}`);
         });
 
@@ -129,21 +142,21 @@ class HueBridgeEmulator {
                 debug(`Received M-SEARCH from ${rinfo.address}:${rinfo.port}`);
                 const uin = `uuid:${uuid}`;
 
-                socket.send(this.createResponse(ipAddress, port, descriptionPath, bridgeId,
+                socket.send(this.createResponse(ipAddress, this.port, descriptionPath, bridgeId,
                     'upnp:rootdevice', `${uin}::upnp:rootdevice`
                 ), rinfo.port, rinfo.address, (error) => {
                     if (error) {
                         console.error(error);
                     }
                 });
-                socket.send(this.createResponse(ipAddress, port, descriptionPath, bridgeId,
+                socket.send(this.createResponse(ipAddress, this.port, descriptionPath, bridgeId,
                     uin, uin
                 ), rinfo.port, rinfo.address, (error) => {
                     if (error) {
                         console.error(error);
                     }
                 });
-                socket.send(this.createResponse(ipAddress, port, descriptionPath, bridgeId,
+                socket.send(this.createResponse(ipAddress, this.port, descriptionPath, bridgeId,
                     'urn:schemas-upnp-org:device:basic:1', uin
                 ), rinfo.port, rinfo.address, (error) => {
                     if (error) {
@@ -164,7 +177,7 @@ class HueBridgeEmulator {
     }
 
     addLight(name, onChange) {
-        const light = Object.assign({}, hueColorLamp);
+        const light = JSON.parse(JSON.stringify(hueColorLamp));
         light.name = name;
         const ids = Object.keys(this.lights);
         const lastId = ids.length > 0 ? Math.max.apply(null, ids) + 1 : 0;
