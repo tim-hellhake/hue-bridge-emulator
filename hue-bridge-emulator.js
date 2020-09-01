@@ -9,7 +9,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const hueColorLamp = require('./hue-color-lamp.json');
 
-var _debug = false;
+let _debug = false;
 
 function debug(log) {
     if (_debug) {
@@ -44,13 +44,13 @@ class HueBridgeEmulator {
         if(conf == null) return;
         for (let key in conf) {
             switch(key) {
-                case 'debug':
-                    _debug = (conf[key] == true);
-                    break;
-                case 'port':
-                    this.port = conf[key];
-                    break;
-            }
+	    case 'debug':
+	        _debug = (conf[key] == true);
+	        break;
+	    case 'port':
+	        this.port = conf[key];
+	        break;
+	    }
         }
     }
 

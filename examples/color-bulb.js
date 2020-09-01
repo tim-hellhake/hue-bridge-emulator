@@ -6,7 +6,8 @@
 
 const HueBridgeEmulator = require('../hue-bridge-emulator');
 
-const hueBridgeEmulator = new HueBridgeEmulator({ port: 8080, debug: true });
+// const hueBridgeEmulator = new HueBridgeEmulator({ port: 8080, debug: true });
+const hueBridgeEmulator = new HueBridgeEmulator();
 hueBridgeEmulator.start();
 hueBridgeEmulator.addLight('foo', (key, value) => console.log(`foo.${key} => ${value}`));
 hueBridgeEmulator.addLight('bar');
