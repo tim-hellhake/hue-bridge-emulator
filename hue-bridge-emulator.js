@@ -44,13 +44,13 @@ class HueBridgeEmulator {
         if(conf == null) return;
         for (let key in conf) {
             switch(key) {
-	    case 'debug':
-	        _debug = (conf[key] == true);
-	        break;
-	    case 'port':
-	        this.port = conf[key];
-	        break;
-	    }
+            case 'debug':
+                _debug = (conf[key] == true);
+                break;
+            case 'port':
+                this.port = conf[key];
+                break;
+            }
         }
     }
 
