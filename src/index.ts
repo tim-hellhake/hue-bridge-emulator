@@ -4,8 +4,4 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.*
  */
 
-'use strict';
-
-const HueBridgeEmulator = require('./hue-bridge-emulator');
-
-module.exports = HueBridgeEmulator;
+export * from './hue-bridge-emulator'
