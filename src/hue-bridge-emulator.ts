@@ -26,7 +26,7 @@ const defaultConfig: Config = {
     debug: false
 }
 
-export class HueBridgeEmulator {
+export default class HueBridgeEmulator {
     private lights: { [key: string]: any } = {};
     private callbacks: { [key: string]: (key: string, value: any) => void } = {};
     private nextId: number = 0;
@@ -60,6 +60,7 @@ export class HueBridgeEmulator {
             next();
         });
 
+        // get description.xml
         app.get(descriptionPath, (_, res) => {
             res.status(200).send(this.createDescription(ipAddress, this.config.port, serialNumber, uuid));
         });
@@ -184,7 +185,7 @@ export class HueBridgeEmulator {
         throw 'No ip address found';
     }
 
-    addLight(name: string, onChange: (key: string, value: any) => void) {
+    addLight(name: string, onChange: (key: string, value: any) => void = (() => {})) {
         const light = JSON.parse(JSON.stringify(hueColorLamp));
         light.name = name;
         const id = this.nextId;
