@@ -10,6 +10,9 @@ import { json, urlencoded } from 'body-parser';
 import hueColorLamp from './hue-color-lamp.json';
 import { createSocket } from 'dgram';
 import { AddressInfo } from 'net';
+import { HueStorage } from './hue-storage'
+import { HueResponse, HueResponseDefaults } from './hue-response';
+import { createUser } from './hue-bridge-config';
 
 interface ConfigOptions {
     port?: number,
@@ -26,14 +29,16 @@ const defaultConfig: Config = {
     debug: false
 }
 
-export default class HueBridgeEmulator {
+export class HueBridgeEmulator {
     private lights: { [key: string]: any } = {};
     private callbacks: { [key: string]: (key: string, value: any) => void } = {};
     private nextId: number = 0;
     private config: Config;
+    private storage: HueStorage;
 
     constructor(config: ConfigOptions = {}) {
         this.config = { ...defaultConfig, ...config }
+        this.storage = new HueStorage()
     }
 
     private debug(args: any) {
@@ -60,15 +65,14 @@ export default class HueBridgeEmulator {
             next();
         });
 
-        // get description.xml
+        // Get description.xml for UPnP compatibility
         app.get(descriptionPath, (_, res) => {
             res.status(200).send(this.createDescription(ipAddress, this.config.port, serialNumber, uuid));
         });
 
-        app.post('/api', (_, res) => {
-            const result = [{ success: { username: 'foo' } }];
-            res.status(200).contentType('application/json').send(JSON.stringify(result));
-        });
+        // Create user
+        // API link: https://developers.meethue.com/develop/hue-api/7-configuration-api/#create-user
+        app.post('/api', createUser);
 
         app.get('/api/foo/lights', (_, res) => {
             res.status(200).contentType('application/json').send(JSON.stringify(this.lights));
@@ -185,7 +189,7 @@ export default class HueBridgeEmulator {
         throw 'No ip address found';
     }
 
-    addLight(name: string, onChange: (key: string, value: any) => void = (() => {})) {
+    addLight(name: string, onChange?: (key: string, value: any) => void) {
         const light = JSON.parse(JSON.stringify(hueColorLamp));
         light.name = name;
         const id = this.nextId;

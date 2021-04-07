@@ -4,13 +4,8 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.*
  */
 
-export * from './hue-bridge-emulator';
+import { HueBridgeEmulator } from './hue-bridge';
 
-import HueBridgeEmulator from './hue-bridge-emulator';
-
-//const { HueBridgeEmulator } = require('../dist/index.js');
-
-// const hueBridgeEmulator = new HueBridgeEmulator({ port: 80, debug: true });
 let hueBridgeEmulator = new HueBridgeEmulator({ debug: true });
 hueBridgeEmulator.start();
 hueBridgeEmulator.addLight('light1');
