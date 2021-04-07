@@ -12,7 +12,9 @@ import { createSocket } from 'dgram';
 import { AddressInfo } from 'net';
 import { HueStorage } from './hue-storage'
 import { HueResponse, HueResponseDefaults } from './hue-response';
-import { createUser } from './hue-bridge-config';
+import { createUser } from './controller/hue-bridge-config';
+import { authUser } from './middleware/hue-bridge-auth';
+import { getLights } from './controller/hue-bridge-lights';
 
 interface ConfigOptions {
     port?: number,
@@ -73,6 +75,8 @@ export class HueBridgeEmulator {
         // Create user
         // API link: https://developers.meethue.com/develop/hue-api/7-configuration-api/#create-user
         app.post('/api', createUser);
+
+        app.get('/api/:user/lights', authUser, getLights);
 
         app.get('/api/foo/lights', (_, res) => {
             res.status(200).contentType('application/json').send(JSON.stringify(this.lights));

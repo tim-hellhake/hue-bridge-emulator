@@ -20,6 +20,16 @@ export interface HueSuccessUsername {
 }
 
 export class HueResponseDefaults {
+	static errorUnauthorized(address: string = '/'): Array<HueResponse> {
+		return [{
+			error: { 
+				type: 1, 
+				address: address, 
+				description: 'unauthorized user'
+			}
+		}]
+	}
+
 	static errorMissingParameters(address: string = '/'): Array<HueResponse> {
 		return [{
 			error: { 

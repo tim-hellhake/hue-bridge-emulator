@@ -5,8 +5,8 @@
  */
 
 import { Request, Response } from "express";
-import { HueResponseDefaults } from "./hue-response";
-import { HueStorage } from "./hue-storage";
+import { HueResponseDefaults } from "../hue-response";
+import { HueStorage } from "../hue-storage";
 
 
 export const createUser = async (req: Request, res: Response) => {
@@ -23,8 +23,7 @@ export const createUser = async (req: Request, res: Response) => {
 	} else {
 		// report missing body
 		res.status(200)
-			.contentType('application/json')
-			.send(JSON.stringify(HueResponseDefaults.errorMissingParameters()));
+			.json(HueResponseDefaults.errorMissingParameters());
 	}
 }
 

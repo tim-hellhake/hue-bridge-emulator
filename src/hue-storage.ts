@@ -97,4 +97,14 @@ export class HueStorage {
 		return this.writeStorage(this.storage)
 			.catch(console.log);
 	}
+
+	/**
+	 * Check if username is whitelisted
+	 * @param name String of the username
+	 * @returns if whitelisted
+	 */
+	public checkUser(name: string): boolean {
+		if (this.storage.whitelist?.includes(name) ?? false) { return true; } 
+		return false;
+	}
 }
