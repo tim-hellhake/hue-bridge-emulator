@@ -10,11 +10,9 @@ import { json, urlencoded } from 'body-parser';
 import hueColorLamp from './hue-color-lamp.json';
 import { createSocket } from 'dgram';
 import { AddressInfo } from 'net';
-import { HueStorage } from './hue-storage'
-import { HueResponse, HueResponseDefaults } from './hue-response';
-import { createUser } from './controller/hue-bridge-config';
-import { authUser } from './middleware/hue-bridge-auth';
-import { getLights } from './controller/hue-bridge-lights';
+import { createUser } from './express-controller/hue-bridge-config';
+import { authUser } from './express-middleware/hue-bridge-auth';
+import { searchNewLights, getLights, getNewLights, getLight, setLight, setLightState, deleteLight } from './express-controller/hue-bridge-lights';
 
 interface ConfigOptions {
     port?: number,
@@ -31,16 +29,14 @@ const defaultConfig: Config = {
     debug: false
 }
 
-export class HueBridgeEmulator {
+export class HueBridge {
     private lights: { [key: string]: any } = {};
     private callbacks: { [key: string]: (key: string, value: any) => void } = {};
     private nextId: number = 0;
     private config: Config;
-    private storage: HueStorage;
 
     constructor(config: ConfigOptions = {}) {
         this.config = { ...defaultConfig, ...config }
-        this.storage = new HueStorage()
     }
 
     private debug(args: any) {
@@ -72,60 +68,54 @@ export class HueBridgeEmulator {
             res.status(200).send(this.createDescription(ipAddress, this.config.port, serialNumber, uuid));
         });
 
-        // Create user
-        // API link: https://developers.meethue.com/develop/hue-api/7-configuration-api/#create-user
+
+        /**
+         * Create new user
+         * @see https://developers.meethue.com/develop/hue-api/7-configuration-api/#create-user
+         */
         app.post('/api', createUser);
 
+        /**
+         * Initiate search for new lights (simulation only)
+         * @see https://developers.meethue.com/develop/hue-api/lights-api/#search-for-new-lights
+         */
+        app.post('/api/:user/lights', authUser, searchNewLights);
+
+        /** 
+         * Receive list of new lights 
+         * @see https://developers.meethue.com/develop/hue-api/lights-api/#get-new-lights
+         * */ 
+        app.get('/api/:user/lights/new', authUser, getNewLights);
+
+        /**
+         * Receive list of lights
+         * @see https://developers.meethue.com/develop/hue-api/lights-api/#get-all-lights
+         */
         app.get('/api/:user/lights', authUser, getLights);
 
-        app.get('/api/foo/lights', (_, res) => {
-            res.status(200).contentType('application/json').send(JSON.stringify(this.lights));
-        });
+        /**
+         * Receive a light from the light list
+         * @see https://developers.meethue.com/develop/hue-api/lights-api/#get-attr-and-state
+         */
+        app.get('/api/:user/lights/:lightid', authUser, getLight);
 
-        app.get('/api/foo/lights/:id', (req, res) => {
-            const light = this.lights[req.params.id];
+        /**
+         * Set attributes of a light (e.g. rename)
+         * @see https://developers.meethue.com/develop/hue-api/lights-api/#set-light-attr-rename
+         */
+        app.put('/api/:user/lights/:lightid', authUser, setLight);
 
-            if (light) {
-                res.status(200)
-                    .contentType('application/json')
-                    .send(JSON.stringify(light));
-            } else {
-                res.status(404).send();
-            }
-        });
+        /** 
+         * Set state of a light
+         * @see https://developers.meethue.com/develop/hue-api/lights-api/#set-light-state
+         */
+        app.put('/api/:user/lights/:lightid/state', authUser, setLightState);
 
-        app.put('/api/foo/lights/:id/state', (req, res) => {
-            const id = req.params.id;
-            const light = this.lights[id];
-            const callback = this.callbacks[id];
-            const state = req.body;
-            this.debug(`Received state change ${JSON.stringify(state)}`);
-
-            if (light) {
-                const result = [];
-
-                for (let key in state) {
-                    const value = state[key];
-
-                    if (callback) {
-                        try {
-                            callback(key, value);
-                        } catch (err) {
-                            console.error(err);
-                        }
-                    }
-
-                    light.state[key] = value;
-                    result.push({ success: { [`/lights/${id}/state/${key}`]: value } });
-                }
-
-                res.status(200)
-                    .contentType('application/json')
-                    .send(JSON.stringify(result));
-            } else {
-                res.status(404).send();
-            }
-        });
+        /**
+         * Delete a light
+         * @see https://developers.meethue.com/develop/hue-api/lights-api/#del-lights
+         */
+        app.delete('/api/:user/lights/:lightid', authUser, deleteLight);
 
         const restServer = app.listen(this.config.port, () => {
             const info: AddressInfo | null = <AddressInfo>restServer?.address();

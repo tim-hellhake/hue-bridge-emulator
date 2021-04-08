@@ -4,8 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.*
  */
 
-import { HueBridgeEmulator } from './hue-bridge';
+import { HueBridge } from './hue-bridge';
 
-let hueBridgeEmulator = new HueBridgeEmulator({ debug: true });
-hueBridgeEmulator.start();
-hueBridgeEmulator.addLight('light1');
+let bridge = new HueBridge({ debug: true });
+bridge.start();

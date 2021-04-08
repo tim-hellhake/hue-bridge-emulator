@@ -1,0 +1,912 @@
+[
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "ct": 447,
+      "alert": "select",
+      "colormode": "ct",
+      "mode": "homeautomation",
+      "reachable": true
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-03-04T03:09:11"
+    },
+    "type": "Color temperature light",
+    "name": "Spot Figur",
+    "modelid": "LTW013",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue ambiance spot",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 1000,
+        "maxlumen": 250,
+        "ct": {
+          "min": 153,
+          "max": 454
+        }
+      },
+      "streaming": {
+        "renderer": false,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "spotbulb",
+      "function": "functional",
+      "direction": "downwards",
+      "startup": {
+        "mode": "powerfail",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:02:f0:5b:bc-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "FBD2BF7E",
+    "productid": "Philips-LTW013-1-GU10CTv1"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "ct": 447,
+      "alert": "select",
+      "colormode": "ct",
+      "mode": "homeautomation",
+      "reachable": false
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-03-04T03:09:15"
+    },
+    "type": "Color temperature light",
+    "name": "Spot Schrankl",
+    "modelid": "LTW013",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue ambiance spot",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 1000,
+        "maxlumen": 250,
+        "ct": {
+          "min": 153,
+          "max": 454
+        }
+      },
+      "streaming": {
+        "renderer": false,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "spotbulb",
+      "function": "functional",
+      "direction": "downwards",
+      "startup": {
+        "mode": "powerfail",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:04:7d:2b:f7-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "FBD2BF7E",
+    "productid": "Philips-LTW013-1-GU10CTv1"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 88,
+      "hue": 7760,
+      "sat": 254,
+      "effect": "none",
+      "xy": [
+        0.5334,
+        0.427
+      ],
+      "ct": 500,
+      "alert": "select",
+      "colormode": "xy",
+      "mode": "homeautomation",
+      "reachable": true
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-07-12T02:35:17"
+    },
+    "type": "Extended color light",
+    "name": "Bett",
+    "modelid": "LST002",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue lightstrip plus",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 40,
+        "maxlumen": 1600,
+        "colorgamuttype": "C",
+        "colorgamut": [
+          [
+            0.6915,
+            0.3083
+          ],
+          [
+            0.17,
+            0.7
+          ],
+          [
+            0.1532,
+            0.0475
+          ]
+        ],
+        "ct": {
+          "min": 153,
+          "max": 500
+        }
+      },
+      "streaming": {
+        "renderer": true,
+        "proxy": true
+      }
+    },
+    "config": {
+      "archetype": "huelightstrip",
+      "function": "mixed",
+      "direction": "omnidirectional",
+      "startup": {
+        "mode": "safety",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:03:f5:31:5e-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "59F2C3A3",
+    "productid": "Philips-LST002-1-LedStripsv3"
+  },
+  {
+    "state": {
+      "on": true,
+      "bri": 254,
+      "ct": 366,
+      "alert": "select",
+      "colormode": "ct",
+      "mode": "homeautomation",
+      "reachable": false
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-03-14T03:39:17"
+    },
+    "type": "Color temperature light",
+    "name": "Spot Bad 3",
+    "modelid": "LTW013",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue ambiance spot",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 1000,
+        "maxlumen": 250,
+        "ct": {
+          "min": 153,
+          "max": 454
+        }
+      },
+      "streaming": {
+        "renderer": false,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "spotbulb",
+      "function": "functional",
+      "direction": "downwards",
+      "startup": {
+        "mode": "powerfail",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:04:96:31:f3-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "FBD2BF7E",
+    "productid": "Philips-LTW013-1-GU10CTv1"
+  },
+  {
+    "state": {
+      "on": false,
+      "alert": "select",
+      "mode": "homeautomation",
+      "reachable": false
+    },
+    "swupdate": {
+      "state": "notupdatable",
+      "lastinstall": "2019-11-23T21:52:41"
+    },
+    "type": "On/Off plug-in unit",
+    "name": "Christbaum",
+    "modelid": "Plug 01",
+    "manufacturername": "OSRAM",
+    "productname": "On/Off plug",
+    "capabilities": {
+      "certified": false,
+      "control": {},
+      "streaming": {
+        "renderer": false,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "plug",
+      "function": "functional",
+      "direction": "omnidirectional"
+    },
+    "uniqueid": "7c:b0:3e:aa:00:b2:67:ac-03",
+    "swversion": "V1.04.12"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "ct": 443,
+      "alert": "none",
+      "colormode": "ct",
+      "mode": "homeautomation",
+      "reachable": true
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-03-05T21:28:05"
+    },
+    "type": "Color temperature light",
+    "name": "Spot Esstisch",
+    "modelid": "LTW013",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue ambiance spot",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 1000,
+        "maxlumen": 250,
+        "ct": {
+          "min": 153,
+          "max": 454
+        }
+      },
+      "streaming": {
+        "renderer": false,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "spotbulb",
+      "function": "functional",
+      "direction": "downwards",
+      "startup": {
+        "mode": "safety",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:04:a8:04:58-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "FBD2BF7E",
+    "productid": "Philips-LTW013-1-GU10CTv1"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "ct": 443,
+      "alert": "select",
+      "colormode": "ct",
+      "mode": "homeautomation",
+      "reachable": true
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-03-13T17:04:48"
+    },
+    "type": "Color temperature light",
+    "name": "Spot Bar",
+    "modelid": "LTW013",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue ambiance spot",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 1000,
+        "maxlumen": 250,
+        "ct": {
+          "min": 153,
+          "max": 454
+        }
+      },
+      "streaming": {
+        "renderer": false,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "spotbulb",
+      "function": "functional",
+      "direction": "downwards",
+      "startup": {
+        "mode": "safety",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:02:f0:5e:b6-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "FBD2BF7E",
+    "productid": "Philips-LTW013-1-GU10CTv1"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "ct": 443,
+      "alert": "select",
+      "colormode": "ct",
+      "mode": "homeautomation",
+      "reachable": true
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-03-13T17:04:56"
+    },
+    "type": "Color temperature light",
+    "name": "Spot Couch",
+    "modelid": "LTW013",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue ambiance spot",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 1000,
+        "maxlumen": 250,
+        "ct": {
+          "min": 153,
+          "max": 454
+        }
+      },
+      "streaming": {
+        "renderer": false,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "spotbulb",
+      "function": "functional",
+      "direction": "downwards",
+      "startup": {
+        "mode": "safety",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:03:dc:81:64-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "FBD2BF7E",
+    "productid": "Philips-LTW013-1-GU10CTv1"
+  },
+  {
+    "state": {
+      "on": true,
+      "bri": 254,
+      "ct": 366,
+      "alert": "none",
+      "colormode": "ct",
+      "mode": "homeautomation",
+      "reachable": false
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-03-14T18:11:48"
+    },
+    "type": "Color temperature light",
+    "name": "Spot Bad 1",
+    "modelid": "LTW013",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue ambiance spot",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 1000,
+        "maxlumen": 250,
+        "ct": {
+          "min": 153,
+          "max": 454
+        }
+      },
+      "streaming": {
+        "renderer": false,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "spotbulb",
+      "function": "functional",
+      "direction": "downwards",
+      "startup": {
+        "mode": "powerfail",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:04:95:50:11-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "FBD2BF7E",
+    "productid": "Philips-LTW013-1-GU10CTv1"
+  },
+  {
+    "state": {
+      "on": true,
+      "bri": 254,
+      "ct": 366,
+      "alert": "none",
+      "colormode": "ct",
+      "mode": "homeautomation",
+      "reachable": false
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-03-19T03:24:40"
+    },
+    "type": "Color temperature light",
+    "name": "Spot Bad 2",
+    "modelid": "LTW013",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue ambiance spot",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 1000,
+        "maxlumen": 250,
+        "ct": {
+          "min": 153,
+          "max": 454
+        }
+      },
+      "streaming": {
+        "renderer": false,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "spotbulb",
+      "function": "functional",
+      "direction": "downwards",
+      "startup": {
+        "mode": "powerfail",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:04:96:28:25-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "FBD2BF7E",
+    "productid": "Philips-LTW013-1-GU10CTv1"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "alert": "select",
+      "mode": "homeautomation",
+      "reachable": true
+    },
+    "swupdate": {
+      "state": "notupdatable",
+      "lastinstall": "2020-03-19T21:23:54"
+    },
+    "type": "Dimmable light",
+    "name": "Pendelleuchte",
+    "modelid": "TRADFRI transformer 30W",
+    "manufacturername": "IKEA of Sweden",
+    "productname": "Dimmable light",
+    "capabilities": {
+      "certified": false,
+      "control": {},
+      "streaming": {
+        "renderer": false,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "classicbulb",
+      "function": "functional",
+      "direction": "omnidirectional"
+    },
+    "uniqueid": "90:fd:9f:ff:fe:04:c0:fa-01",
+    "swversion": "1.2.245"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "hue": 12054,
+      "sat": 143,
+      "effect": "none",
+      "xy": [
+        0.502,
+        0.4204
+      ],
+      "alert": "select",
+      "colormode": "xy",
+      "mode": "homeautomation",
+      "reachable": true
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-08-21T11:44:16"
+    },
+    "type": "Color light",
+    "name": "Hue iris 1",
+    "modelid": "LLC010",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue iris",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 10000,
+        "maxlumen": 210,
+        "colorgamuttype": "A",
+        "colorgamut": [
+          [
+            0.704,
+            0.296
+          ],
+          [
+            0.2151,
+            0.7106
+          ],
+          [
+            0.138,
+            0.08
+          ]
+        ]
+      },
+      "streaming": {
+        "renderer": true,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "hueiris",
+      "function": "decorative",
+      "direction": "upwards",
+      "startup": {
+        "mode": "safety",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:03:32:e5:af-0b",
+    "swversion": "5.127.1.26581"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "hue": 7676,
+      "sat": 199,
+      "effect": "none",
+      "xy": [
+        0.5016,
+        0.4151
+      ],
+      "ct": 443,
+      "alert": "none",
+      "colormode": "xy",
+      "mode": "homeautomation",
+      "reachable": true
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-08-23T02:26:06"
+    },
+    "type": "Extended color light",
+    "name": "Hue lightstrip plus 1",
+    "modelid": "LST002",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue lightstrip plus",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 40,
+        "maxlumen": 1600,
+        "colorgamuttype": "C",
+        "colorgamut": [
+          [
+            0.6915,
+            0.3083
+          ],
+          [
+            0.17,
+            0.7
+          ],
+          [
+            0.1532,
+            0.0475
+          ]
+        ],
+        "ct": {
+          "min": 153,
+          "max": 500
+        }
+      },
+      "streaming": {
+        "renderer": true,
+        "proxy": true
+      }
+    },
+    "config": {
+      "archetype": "huelightstrip",
+      "function": "mixed",
+      "direction": "omnidirectional",
+      "startup": {
+        "mode": "safety",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:03:f5:6c:8d-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "59F2C3A3",
+    "productid": "Philips-LST002-1-LedStripsv3"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "hue": 7675,
+      "sat": 199,
+      "effect": "none",
+      "xy": [
+        0.5016,
+        0.4151
+      ],
+      "ct": 443,
+      "alert": "select",
+      "colormode": "xy",
+      "mode": "homeautomation",
+      "reachable": true
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2021-01-14T03:23:07"
+    },
+    "type": "Extended color light",
+    "name": "Hue go 1",
+    "modelid": "LCT026",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue go",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 70,
+        "maxlumen": 400,
+        "colorgamuttype": "C",
+        "colorgamut": [
+          [
+            0.6915,
+            0.3083
+          ],
+          [
+            0.17,
+            0.7
+          ],
+          [
+            0.1532,
+            0.0475
+          ]
+        ],
+        "ct": {
+          "min": 153,
+          "max": 500
+        }
+      },
+      "streaming": {
+        "renderer": true,
+        "proxy": true
+      }
+    },
+    "config": {
+      "archetype": "huego",
+      "function": "decorative",
+      "direction": "omnidirectional",
+      "startup": {
+        "mode": "safety",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:08:5a:8a:fc-0b",
+    "swversion": "1.76.10",
+    "swconfigid": "9C47B782",
+    "productid": "Philips-LCT026-1-HueGo_v2"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "hue": 6600,
+      "sat": 254,
+      "effect": "none",
+      "xy": [
+        0.5019,
+        0.4152
+      ],
+      "ct": 447,
+      "alert": "select",
+      "colormode": "xy",
+      "mode": "homeautomation",
+      "reachable": false
+    },
+    "swupdate": {
+      "state": "transferring",
+      "lastinstall": "2020-09-24T02:09:56"
+    },
+    "type": "Extended color light",
+    "name": "Hue go 2",
+    "modelid": "LCT026",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue go",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 70,
+        "maxlumen": 400,
+        "colorgamuttype": "C",
+        "colorgamut": [
+          [
+            0.6915,
+            0.3083
+          ],
+          [
+            0.17,
+            0.7
+          ],
+          [
+            0.1532,
+            0.0475
+          ]
+        ],
+        "ct": {
+          "min": 153,
+          "max": 500
+        }
+      },
+      "streaming": {
+        "renderer": true,
+        "proxy": true
+      }
+    },
+    "config": {
+      "archetype": "huego",
+      "function": "decorative",
+      "direction": "omnidirectional",
+      "startup": {
+        "mode": "safety",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:08:5a:8d:b6-0b",
+    "swversion": "1.65.9_hB3217DF",
+    "swconfigid": "BF1EED9B",
+    "productid": "Philips-LCT026-1-HueGo_v2"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "hue": 7674,
+      "sat": 199,
+      "effect": "none",
+      "xy": [
+        0.5017,
+        0.4151
+      ],
+      "ct": 443,
+      "alert": "none",
+      "colormode": "xy",
+      "mode": "homeautomation",
+      "reachable": true
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-09-25T21:10:45"
+    },
+    "type": "Extended color light",
+    "name": "Hue lightstrip plus 2",
+    "modelid": "LST002",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue lightstrip plus",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 40,
+        "maxlumen": 1600,
+        "colorgamuttype": "C",
+        "colorgamut": [
+          [
+            0.6915,
+            0.3083
+          ],
+          [
+            0.17,
+            0.7
+          ],
+          [
+            0.1532,
+            0.0475
+          ]
+        ],
+        "ct": {
+          "min": 153,
+          "max": 500
+        }
+      },
+      "streaming": {
+        "renderer": true,
+        "proxy": true
+      }
+    },
+    "config": {
+      "archetype": "huelightstrip",
+      "function": "mixed",
+      "direction": "omnidirectional",
+      "startup": {
+        "mode": "safety",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:03:e1:46:92-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "59F2C3A3",
+    "productid": "Philips-LST002-1-LedStripsv3"
+  },
+  {
+    "state": {
+      "on": false,
+      "bri": 254,
+      "ct": 447,
+      "alert": "select",
+      "colormode": "ct",
+      "mode": "homeautomation",
+      "reachable": false
+    },
+    "swupdate": {
+      "state": "noupdates",
+      "lastinstall": "2020-09-25T21:12:04"
+    },
+    "type": "Color temperature light",
+    "name": "Spot Eingang",
+    "modelid": "LTW013",
+    "manufacturername": "Signify Netherlands B.V.",
+    "productname": "Hue ambiance spot",
+    "capabilities": {
+      "certified": true,
+      "control": {
+        "mindimlevel": 1000,
+        "maxlumen": 250,
+        "ct": {
+          "min": 153,
+          "max": 454
+        }
+      },
+      "streaming": {
+        "renderer": false,
+        "proxy": false
+      }
+    },
+    "config": {
+      "archetype": "spotbulb",
+      "function": "functional",
+      "direction": "downwards",
+      "startup": {
+        "mode": "safety",
+        "configured": true
+      }
+    },
+    "uniqueid": "00:17:88:01:04:7d:2c:b0-0b",
+    "swversion": "1.50.2_r30933",
+    "swconfigid": "FBD2BF7E",
+    "productid": "Philips-LTW013-1-GU10CTv1"
+  }
+]
