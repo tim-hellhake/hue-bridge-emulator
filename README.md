@@ -14,4 +14,8 @@ The instructions below requires [`node`](https://nodejs.org/en/download/) being 
 3. Initiate the Node package environment with: `npm install`
 4. The `package.json` has some script pre-configured to start right away with: `npm start dev` (development environment)
 
-# How to use
+# Implementation plan
+- [x] Permanent storage (local JSON file to permanently store the bridge state)
+- [x] Lights API
+- [ ] Groups API
+- [ ] Scenes API
