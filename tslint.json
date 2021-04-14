@@ -1,0 +1,14 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended"
+    ],
+    "jsRules": {},
+    "rules": {
+        "no-unnecessary-type-assertion": true,
+        "array-type": [true, "array"],
+        "no-double-space": true,
+        "no-var-keyword": true
+    },
+    "rulesDirectory": []
+}

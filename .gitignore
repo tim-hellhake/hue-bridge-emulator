@@ -1,2 +1,6 @@
 node_modules
 lib
+dist
+.vscode
+hue.json
+package-lock.json
