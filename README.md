@@ -18,5 +18,5 @@ The instructions below requires [`node`](https://nodejs.org/en/download/) being 
 - [x] Permanent storage (local JSON file to permanently store the bridge state)
 - [x] Lights API
 - [x] Groups API
-- [ ] Scenes API
+- [x] Scenes API
 - [ ] Error handler to provide proper feedback on wrong JSON body data
