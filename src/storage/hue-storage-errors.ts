@@ -25,4 +25,11 @@ export module HueStorageErrors {
 			this.name = "GroupNotFound";
 		}
 	}
+
+	export class SceneNotFound extends Error {
+		constructor(message: string) {
+			super(message);
+			this.name = "SceneNotFound";
+		}
+	}
 }

@@ -4,7 +4,7 @@
  * file, You can obtain one at http://mozilla.org/MPL/2.0/.
  */
 
-import { Request, response, Response } from "express";
+import { Request, Response } from "express";
 import { HueStorageGroups } from "../storage/hue-storage-groups";
 import * as HueResponse from "./hue-response";
 import * as Models from '../storage/hue-storage-models';
@@ -14,7 +14,7 @@ import { Type as HueErrorType, Description as HueErrorDescr } from "./hue-respon
  * Express controller to create a new group
  * @param req Express request information. Expects `name`, or `lights` as body property. Optionally, `type` and `class` can also be provided as body property.
  */
- export const newGroup = async (req: Request, res: Response) => {
+export const newGroup = async (req: Request, res: Response) => {
 	// get requested group
 	let request = req.body as Models.Group;
 	// set attributes
@@ -55,7 +55,7 @@ export const getGroups = async (req: Request, res: Response) => {
  * Express controller to get a group by id
  * @param req Express request information. Expects `groupid` in params property.
  */
- export const getGroup = async (req: Request, res: Response) => {
+export const getGroup = async (req: Request, res: Response) => {
 	// get parameters
 	let groupid = req.params.groupid as string;
 	// get group from storage
@@ -101,7 +101,7 @@ export const setGroup = async (req: Request, res: Response) => {
  * Express controller to set group action
  * @param req Express request information. Expects `groupid` in params property and the body property being conform to `Models.GroupState`.
  */
- export const setGroupAction = async (req: Request, res: Response) => {
+export const setGroupAction = async (req: Request, res: Response) => {
 	// get group id
 	let groupid = req.params.groupid as string;
 	// get requested group action

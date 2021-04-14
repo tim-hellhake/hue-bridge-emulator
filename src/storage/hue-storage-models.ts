@@ -12,6 +12,8 @@ export interface File {
 	lights?: { [key: string]: Light };
     /** Registered groups */
     groups?: { [key: string]: Group };
+    /** Registered scenes */
+    scenes?: { [key: string]: Scene };
 }
 
 
@@ -67,4 +69,26 @@ export interface GroupAction {
     ct?: number;
     alert?: string;
     colormode?: string;
+}
+
+
+export interface Scene {
+    name?: string;
+    type?: string;
+    group?: string;
+    lights?: string[];
+    owner?: string;
+    recycle?: boolean;
+    locked?: boolean;
+    appdata?: SceneAppdata;
+    picture?: string;
+    image?: string;
+    lastupdated?: Date;
+    version?: number;
+    lightstates?: { [key: string]: LightState };
+}
+
+export interface SceneAppdata {
+    version?: number;
+    data?: string;
 }

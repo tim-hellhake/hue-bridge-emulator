@@ -14,6 +14,7 @@ import { createUser } from './express-controller/hue-bridge-config';
 import { authUser } from './express-middleware/hue-bridge-auth';
 import { searchNewLights, getLights, getNewLights, getLight, setLight, setLightState, deleteLight } from './express-controller/hue-bridge-lights';
 import { deleteGroup, getGroup, getGroups, newGroup, setGroup, setGroupAction } from './express-controller/hue-bridge-groups';
+import { deleteScene, getScene, getScenes, newScene, setScene } from './express-controller/hue-bridge-scenes';
 
 interface ConfigOptions {
     port?: number,
@@ -156,6 +157,37 @@ export class HueBridge {
          */
         app.delete('/api/:user/groups/:groupid', authUser, deleteGroup);
 
+
+        /**
+         * Create a scene
+         * @see https://developers.meethue.com/develop/hue-api/4-scenes/#create-scene
+         */
+        app.post('/api/:user/scenes', authUser, newScene);
+
+        /**
+         * Receive list of scenes
+         * @see https://developers.meethue.com/develop/hue-api/4-scenes/#get-all-scenes
+         */
+        app.get('/api/:user/scenes', authUser, getScenes);
+
+        /**
+         * Receive scene from the scenes list
+         * @see https://developers.meethue.com/develop/hue-api/4-scenes/#get-scene
+         */
+        app.get('/api/:user/scenes/:sceneid', authUser, getScene);
+
+        /**
+         * Set attributes of a scene (e.g. name, lights, or lightstates)
+         * @see https://developers.meethue.com/develop/hue-api/4-scenes/#43_modify_scene
+         */
+        app.put('/api/:user/groups/:sceneid', authUser, setScene);
+
+        /**
+         * Delete a scene
+         * @see https://developers.meethue.com/develop/hue-api/4-scenes/#delete-scene
+         */
+        app.delete('/api/:user/scenes/:sceneid', authUser, deleteScene);
+        
         
         const restServer = app.listen(this.config.port, () => {
             const info: AddressInfo | null = <AddressInfo>restServer?.address();

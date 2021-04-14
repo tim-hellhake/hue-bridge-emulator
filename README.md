@@ -19,3 +19,4 @@ The instructions below requires [`node`](https://nodejs.org/en/download/) being 
 - [x] Lights API
 - [x] Groups API
 - [ ] Scenes API
+- [ ] Error handler to provide proper feedback on wrong JSON body data

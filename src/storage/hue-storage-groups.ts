@@ -55,10 +55,11 @@
 
 	/**
 	 * Set group attributes
-	 * @param id Group id of the group
+	 * @param id Id of the group
 	 * @param name Optional: New name of the group
 	 * @param lights Optional: New array of lights mapped to the group
 	 * @param groupclass Optional: New group class
+	 * @returns Promise to confirm the update being written to file
 	 */
 	public async setGroup(id: string, name?: string, lights?: Array<string>, groupclass?: string): Promise<void> {
 		// get group object
