@@ -16,9 +16,9 @@ export class HueStorageLights extends HueStorage {
 	readonly templateFile = './src/storage/templates/lights.json';
 
 	/**
-	 * Add a newe light to the Hue Storage
+	 * Add a new light to the Hue Storage
 	 * @param light Object of the light
-	 * @returns Promise to confirm the update being written to file and returns the light key
+	 * @returns Promise to confirm the update being written to file and to return the light key
 	 */
 	public async addLight(light: Models.Light): Promise<string> {
 		// get all existing light ids
@@ -42,7 +42,7 @@ export class HueStorageLights extends HueStorage {
 
 	/**
 	 * Get all registered lights from Hue Storage
-	 * @returns Key-value pairs of all lights, whereas the key represents the light ids
+	 * @returns Key-value pairs of all lights, whereas the key represents the light id
 	 */
 	public getLights(): { [key: string]: Models.Light } {
 		return this.storage.lights ?? {};
@@ -60,7 +60,7 @@ export class HueStorageLights extends HueStorage {
 	/**
 	 * Set light attribute (name)
 	 * @param id Light id of the light
-	 * @param name Name of the light
+	 * @param name New name of the light
 	 * @returns Promise to confirm the update being written to file
 	 */
 	public async setLight(id: string, name: string): Promise<void> {
@@ -75,20 +75,21 @@ export class HueStorageLights extends HueStorage {
 					return Promise.reject(new HueStorageErrors.WriteStorage(error));
 				});	
 		} else {
-			return Promise.reject(new HueStorageErrors.LightNotFound('Light id '+id+ ' has not been found'));
+			return Promise.reject(new HueStorageErrors.LightNotFound('Light id ' + id + ' has not been found'));
 		}
 	}
 
 	/**
 	 * Set light state
 	 * @param id Id of the light
+	 * @param state New state properties to be applied to the light object
 	 * @returns Promise to confirm the update being written to file
 	 */
 	public async setLightState(id: string, state: Models.LightState): Promise<void> {
 		// get light object
 		let light = this.storage.lights?.[id] as Models.Light;
 		if (light) {
-			if (!light.state) { light.state = {} }
+			if (!light.state) { light.state = {}; }
 			// set states
 			light.state.on = state.on;
 			light.state.bri = state.bri;
@@ -102,7 +103,7 @@ export class HueStorageLights extends HueStorage {
 					return Promise.reject(new HueStorageErrors.WriteStorage(error));
 				});	
 		} else {
-			return Promise.reject(new HueStorageErrors.LightNotFound('Light id '+id+ ' has not been found'));
+			return Promise.reject(new HueStorageErrors.LightNotFound('Light id ' + id + ' has not been found'));
 		}
 	}
 

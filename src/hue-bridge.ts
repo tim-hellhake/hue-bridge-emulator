@@ -13,6 +13,7 @@ import { AddressInfo } from 'net';
 import { createUser } from './express-controller/hue-bridge-config';
 import { authUser } from './express-middleware/hue-bridge-auth';
 import { searchNewLights, getLights, getNewLights, getLight, setLight, setLightState, deleteLight } from './express-controller/hue-bridge-lights';
+import { deleteGroup, getGroup, getGroups, newGroup, setGroup, setGroupAction } from './express-controller/hue-bridge-groups';
 
 interface ConfigOptions {
     port?: number,
@@ -75,6 +76,7 @@ export class HueBridge {
          */
         app.post('/api', createUser);
 
+
         /**
          * Initiate search for new lights (simulation only)
          * @see https://developers.meethue.com/develop/hue-api/lights-api/#search-for-new-lights
@@ -100,7 +102,7 @@ export class HueBridge {
         app.get('/api/:user/lights/:lightid', authUser, getLight);
 
         /**
-         * Set attributes of a light (e.g. rename)
+         * Set attributes of a light (e.g. name)
          * @see https://developers.meethue.com/develop/hue-api/lights-api/#set-light-attr-rename
          */
         app.put('/api/:user/lights/:lightid', authUser, setLight);
@@ -117,6 +119,44 @@ export class HueBridge {
          */
         app.delete('/api/:user/lights/:lightid', authUser, deleteLight);
 
+
+        /**
+         * Create a group
+         * @see https://developers.meethue.com/develop/hue-api/groupds-api/#create-group
+         */
+        app.post('/api/:user/groups', authUser, newGroup);
+
+        /**
+         * Receive list of groups
+         * @see https://developers.meethue.com/develop/hue-api/groupds-api/#get-all-groups
+         */
+        app.get('/api/:user/groups', authUser, getGroups);
+
+        /**
+         * Receive a group from the group list
+         * @see https://developers.meethue.com/develop/hue-api/groupds-api/#get-group-attr
+         */
+        app.get('/api/:user/groups/:groupid', authUser, getGroup);
+
+        /**
+         * Set attributes of a group (e.g. name, lights, or class)
+         * @see https://developers.meethue.com/develop/hue-api/groupds-api/#set-group-attr
+         */
+        app.put('/api/:user/groups/:groupid', authUser, setGroup);
+
+        /** 
+         * Set action of a group
+         * @see https://developers.meethue.com/develop/hue-api/groupds-api/#set-gr-state
+         */
+        app.put('/api/:user/groups/:groupid/action', authUser, setGroupAction);
+
+        /**
+         * Delete a group
+         * @see https://developers.meethue.com/develop/hue-api/groupds-api/#del-group
+         */
+        app.delete('/api/:user/groups/:groupid', authUser, deleteGroup);
+
+        
         const restServer = app.listen(this.config.port, () => {
             const info: AddressInfo | null = <AddressInfo>restServer?.address();
             console.log(`Api is listening on ${info?.address}:${info?.port}`);

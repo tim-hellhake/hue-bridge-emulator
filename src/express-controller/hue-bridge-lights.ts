@@ -75,7 +75,7 @@ export const getLight = async (req: Request, res: Response) => {
 }
 
 /**
- * Express controller to set attributes of a light (e.g. rename)
+ * Express controller to set attributes of a light (e.g. name)
  * @param req Express request information. Expects `lightid` in params property and `name` in body property.
  */
 export const setLight = async (req: Request, res: Response) => {

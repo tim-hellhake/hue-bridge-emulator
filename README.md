@@ -17,5 +17,5 @@ The instructions below requires [`node`](https://nodejs.org/en/download/) being 
 # Implementation plan
 - [x] Permanent storage (local JSON file to permanently store the bridge state)
 - [x] Lights API
-- [ ] Groups API
+- [x] Groups API
 - [ ] Scenes API

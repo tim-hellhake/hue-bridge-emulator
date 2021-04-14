@@ -18,4 +18,11 @@ export module HueStorageErrors {
 			this.name = "LightNotFoundError";
 		}
 	}
+
+	export class GroupNotFound extends Error {
+		constructor(message: string) {
+			super(message);
+			this.name = "GroupNotFound";
+		}
+	}
 }
